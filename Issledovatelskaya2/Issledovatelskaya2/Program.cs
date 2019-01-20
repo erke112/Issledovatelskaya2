@@ -42,7 +42,7 @@ namespace Issledovatelskaya2
             const Decimal radiusMoon = 1738140;
             stageClass[] stage = new stageClass[1];
             bool trigStageExit = false;
-            StreamWriter writer = new StreamWriter(@"D:\Advanced Grapher\Untitled2.txt");
+            //StreamWriter writer = new StreamWriter(@"D:\Advanced Grapher\Untitled2.txt");
 
 
             /*
@@ -158,8 +158,8 @@ namespace Issledovatelskaya2
                 }
 
                 Console.WriteLine($"{time.ToString("0.00")}  {moonX.ToString("0.000")}   {moonY.ToString("0.000")}   {moonVX.ToString("0.000")}    {moonVY.ToString("0.000")}  ");
-                writer.WriteLine($" {moonX}  {moonY}");
-                if (time > 10000000) { writer.Close(); Thread.Sleep(1000 * 60 * 60); }
+               // writer.WriteLine($" {moonX}  {moonY}");
+                //if (time > 10000000) { writer.Close(); Thread.Sleep(1000 * 60 * 60); }
 
             }
             Console.WriteLine(moonGfromEarX);
