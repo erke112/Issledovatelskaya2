@@ -45,7 +45,7 @@ namespace issledovatelskaya2
 
 
             /*
-            Console.Write("Количество ступеней? = "); stageKolvo = int.Parse(Console.ReadLine());
+            Console.Write("Количество ступеней? = "); stageKolvo = int.Parse(Console.ReadLine()); ///// для просто так
             Array.Resize(ref stage, stageKolvo);
 
             for (int i = 0; i < stageKolvo; i++)
