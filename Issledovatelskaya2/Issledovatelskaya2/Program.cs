@@ -9,9 +9,9 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace Issledovatelskaya2
+namespace issledovatelskaya2
 {
-    public class stageClass
+    public class stageclass
     {
         public Double isp;
         public Double specificThrust;
@@ -28,7 +28,7 @@ namespace Issledovatelskaya2
     {
         static void Main(string[] args)
         {
-            const Double shag = 1;
+            const Double shag = 0.1;
             Double time, timePred;
             Double x, xPred, y, yPred, vel, velPred, velX, velXPred, velY, velYPred, angleVelRad, gEar, gEarX, gEarY, angleGEarthRad, gMoo, gMooX, gMooY, angleGMooRad;
             Double accel, accelX, accelY, angleAccelRad, angleAccelDegr, thrustPercent, thrust, massflow, mass, massPred, timeBeforeBurnOut, TWR, fuelRemainPercent, deltaVel;
@@ -39,7 +39,7 @@ namespace Issledovatelskaya2
             const Double massMoonG = 4902800030000;
             const Double radiusEarth = 6378100;
             const Double radiusMoon = 1738140;
-            stageClass[] stage = new stageClass[1];
+            stageclass[] stage = new stageclass[1];
             bool trigStageExit = false;
             //StreamWriter writer = new StreamWriter(@"D:\Advanced Grapher\Untitled2.txt");
 
@@ -105,7 +105,7 @@ namespace Issledovatelskaya2
             timePred = 0; time = 0;
             moonX = 0; moonY = 405696000;
             moonAngleV = Math.PI * 1.5;//Начальные значения
-            //moonV = 963.38744M;
+            //moonV = 963.38744;
             moonVXPred = -963.368300825; moonVYPred = 0;
             moonGfromEarXPred = 0; moonGfromEarYPred = 0;
             moonXPred = 0; moonYPred = 405696000;
@@ -114,7 +114,7 @@ namespace Issledovatelskaya2
             while (true)
             {
                 int i = 0;
-                for (i = 0; i < 1000; i++)
+                for (i = 0; i < 10000; i++)
                 {
                     time = timePred + shag;
                     moonVX = moonVXPred + (moonGfromEarXPred * shag);
@@ -137,11 +137,11 @@ namespace Issledovatelskaya2
                     {
                         k = 0;
                     }
-                    moonAngleG = Math.Atan(moonX / moonY) + Math.Pi * k;
+                    moonAngleG = Math.Atan(moonX / moonY) + Math.PI * k;
                     moonGfromEarX = moonGfromEar * Math.Sin(moonAngleG);
                     moonGfromEarY = moonGfromEar * Math.Cos(moonAngleG);
 
-                    if (moonVX < 0) { k = 1.5M; } else { k = 0.5M; }
+                    if (moonVX < 0) { k = 1.5; } else { k = 0.5; }
                     //moonAngleV = -1 * Math.Atan(moonVY / moonVX) + (Math.Pi * k);
 
 
@@ -158,7 +158,7 @@ namespace Issledovatelskaya2
 
                 Console.WriteLine($"{time.ToString("0.00")}  {moonX.ToString("0.000")}   {moonY.ToString("0.000")}   {moonVX.ToString("0.000")}    {moonVY.ToString("0.000")}  ");
                // writer.WriteLine($" {moonX}  {moonY}");
-                //if (time > 10000000) { writer.Close(); Thread.Sleep(1000 * 60 * 60); }
+                if (moonX>10000) { Thread.Sleep(1000 * 60 * 60); }
 
             }
             Console.WriteLine(moonGfromEarX);
